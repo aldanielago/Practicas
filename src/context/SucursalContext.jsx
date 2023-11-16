@@ -9,7 +9,7 @@ function SucursalProvider({ children }) {
     { id: 3, nombre: "Cali"},
     { id: 4, nombre: "Pasto"},
     { id: 5, nombre: "Santa Marta"},
-    { id: 6, nombre: "Brranquilla"},
+    { id: 6, nombre: "Barranquilla"},
     { id: 7, nombre: "Riohacha"},
     { id: 8, nombre: "Cartagena"},
   ]

@@ -1,4 +1,5 @@
 import { PrimaryButton } from "./buttons/PrimaryButton"
+import { FormInput } from "./elements/FormInput"
 
 export function Login() {
   return (
@@ -8,7 +9,7 @@ export function Login() {
 
         <label htmlFor="username" className="w-full">
           <span className="font-quicksand">Nombre</span>
-          <input type="text" id="username" placeholder="Escribe tu nombre" className="w-full mt-2 border border-dark-text-gray p-4 box-border h-3 font-quicksand rounded-md"/>
+          <FormInput type={'text'} placeholder={'escribe tu nombre'}/>
         </label>
         <PrimaryButton text="Login"/>
       </form>

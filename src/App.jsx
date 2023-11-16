@@ -1,15 +1,15 @@
-import { Login } from './components/Login'
-// import { AdminRegister } from './components/AdminRegister'
-// import { SucursalProvider } from './context/SucursalContext';
+// import { Login } from './components/Login'
+import { AdminRegister } from './components/AdminRegister'
+import { SucursalProvider } from './context/SucursalContext';
 
 function App() {
 
   return (
     <>
-      <Login />
-      {/* <SucursalProvider>
+      {/* <Login /> */}
+      <SucursalProvider>
         <AdminRegister />
-      </SucursalProvider> */}
+      </SucursalProvider>
     </>
   )
 }
