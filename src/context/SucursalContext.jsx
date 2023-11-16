@@ -13,11 +13,8 @@ function SucursalProvider({ children }) {
     { id: 7, nombre: "Riohacha"},
     { id: 8, nombre: "Cartagena"},
   ]
-  return <SucursalContext.Provider value={
-    arraySucursales
-  }>
-    {children}
-  </SucursalContext.Provider>;
+
+  return <SucursalContext.Provider value={{ arraySucursales }}> {children} </SucursalContext.Provider>
 }
 
 export { SucursalContext, SucursalProvider };

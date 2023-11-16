@@ -2,9 +2,9 @@ import { useContext } from 'react'
 import { SucursalContext } from '../context/SucursalContext'
 
 export function AdminRegister() {
-  const { sucursales } = useContext(SucursalContext)
+  const { arraySucursales } = useContext(SucursalContext)
   return (
-    <>
+    <section className='border border-black'>
       <h1>Registrar administrador</h1>
       <form className="flex flex-col w-96 h-96 ali">
         <label htmlFor="username">Nombre</label>
@@ -14,16 +14,16 @@ export function AdminRegister() {
         <label htmlFor="telefono">Telefono</label>
         <input type="number" id="telefono"/>
         <label htmlFor="fecha_nacimiento">Fecha de nacimiento</label>
-        <input type="date" id="fecha_nacimiento"/>
+        <input type="date" id="fechaNacimiento"/>
         <label htmlFor="username">Sucursal</label>
         <select name="sucursal" id="sucursal">
-          {sucursales.map(sucursal => (
+          { arraySucursales.map(sucursal => (
             <option key={sucursal.id} value={sucursal.id}>{sucursal.nombre}</option>
             )
           )}
         </select>
         <button type="button">Login</button>
       </form>
-    </>
+    </section>
   )
 }
