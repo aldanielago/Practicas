@@ -1,15 +1,21 @@
-// import { Login } from './components/Login'
-import { AdminRegister } from './components/AdminRegister'
-import { SucursalProvider } from './context/SucursalContext';
+// import { SucursalProvider } from './context/SucursalContext';
+// import { AdminLoginPage } from './components/pages/AdminLoginPage'
+// import { AdminRegister } from './components/pages/AdminRegisterPage'
+
+import { ClientRegisterPage } from "./components/pages/ClientRegisterPage";
+import { SucursalProvider } from "./context/SucursalContext";
 
 function App() {
 
   return (
     <>
-      {/* <Login /> */}
       <SucursalProvider>
-        <AdminRegister />
+        <ClientRegisterPage />
       </SucursalProvider>
+      {/* <AdminLoginPage /> */}
+      {/* <SucursalProvider>
+        <AdminRegister />
+      </SucursalProvider> */}
     </>
   )
 }
