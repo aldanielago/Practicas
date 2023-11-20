@@ -10,3 +10,17 @@
   left: 50%;
   transform: translate(-50%);
 }
+
+/*Delete the default icon of the calendar icon withot remove the event*/
+input[type="date"]::-webkit-calendar-picker-indicator {
+  width: 100% !important;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: transparent;
+  background: 0 0;
+  margin: 0;
+  opacity: 0;
+  pointer-events: auto;
+}
