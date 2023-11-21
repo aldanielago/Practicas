@@ -4,14 +4,14 @@ const SucursalContext = createContext()
 
 function SucursalProvider({ children }) {
   const arraySucursales = [
-    { id: 1, nombre: "Bogotá"},
-    { id: 2, nombre: "Medellín"},
-    { id: 3, nombre: "Cali"},
-    { id: 4, nombre: "Pasto"},
-    { id: 5, nombre: "Santa Marta"},
-    { id: 6, nombre: "Barranquilla"},
-    { id: 7, nombre: "Riohacha"},
-    { id: 8, nombre: "Cartagena"},
+    { id: 0, nombre: "Bogotá"},
+    { id: 1, nombre: "Medellín"},
+    { id: 2, nombre: "Cali"},
+    { id: 3, nombre: "Pasto"},
+    { id: 4, nombre: "Santa Marta"},
+    { id: 5, nombre: "Barranquilla"},
+    { id: 6, nombre: "Riohacha"},
+    { id: 7, nombre: "Cartagena"},
   ]
 
   return <SucursalContext.Provider value={{ arraySucursales }}> {children} </SucursalContext.Provider>

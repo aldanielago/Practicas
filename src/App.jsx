@@ -1,5 +1,7 @@
 import { SucursalProvider } from './context/SucursalContext';
-import { EmpleadosProvider } from './context/EmpleadosContext';
+// import { EmpleadosProvider } from './context/EmpleadosContext';
+// import { AdminDataPage } from './components/pages/AdminDataPage';
+import { ClientProvider } from './context/ClientContext';
 import { ClientDataPage } from './components/pages/ClientDataPage';
 // import { AdminLoginPage } from './components/pages/AdminLoginPage'
 // import { AdminRegister } from './components/pages/AdminRegisterPage'
@@ -11,17 +13,22 @@ function App() {
 
   return (
     <>
-      <SucursalProvider>
+      {/* <SucursalProvider> */}
         {/* <BookRegisterPage /> */}
         {/* <ClientRegisterPage /> */}
         {/* <AdminLoginPage /> */}
         {/* <AdminRegister /> */}
+      {/* </SucursalProvider> */}
+      {/* <SucursalProvider> */}
+        {/* <EmpleadosProvider> */}
+          {/* <AdminDataPage/> */}
+        {/* </EmpleadosProvider> */}
+      {/* </SucursalProvider> */}
+      <SucursalProvider>
+        <ClientProvider>
+          <ClientDataPage />
+        </ClientProvider>
       </SucursalProvider>
-      <EmpleadosProvider>
-        <SucursalProvider>
-          <ClientDataPage/>
-        </SucursalProvider>
-      </EmpleadosProvider>
     </>
   )
 }

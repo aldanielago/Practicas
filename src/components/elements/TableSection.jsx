@@ -1,24 +1,44 @@
 import { CiCalendarDate } from "react-icons/ci";
 import { SucursalContext } from '../../context/SucursalContext';
-import { EmpleadosContext } from '../../context/EmpleadosContext';
 import { useState, useContext } from 'react';
 
 export function TableSection({ title, filters, headers, data }) {
-  const { arrayEmpleados } = useContext(EmpleadosContext);
-  const { arraySucursales } = useContext(SucursalContext);
   const [ date, setDate ] = useState('');
+  const [ sucursal, setSucursal ] = useState('');
+  const [ info, setInfo ] = useState(data);
+  const { arraySucursales } = useContext(SucursalContext);
 
-  function filterByDate() {
-    const filteredArray = arrayEmpleados.filter(empleado => empleado.fechaIngreso === date);
-    console.log(filteredArray);
+  function handleSucursal(e) {
+    setSucursal(e.target.value);
+    console.log(sucursal);
+  }
+
+  function handleDate(e) {
+    setDate(e.target.value);
+    console.log(date);
+  }
+
+  function applyFilters() {
+    const filteredData = data.filter(item => {
+      if (sucursal && date) {
+        return item[1] === sucursal && item[2] === date;
+      } else if (sucursal) {
+        return item[1] === sucursal;
+      } else if (date) {
+        return item[2] === date;
+      } else {
+        return item;
+      }
+    })
+    setInfo(filteredData);
   }
 
   const filter = (
-    <div className='flex w-full justify-end gap-4 text-dark-text-gray pb-2'>
-      <select className='font-quicksan p-2'>
-        <option value="">Sucursal</option>
+    <div className='flex w-full justify-end gap-4 text-dark-text-gray pb-2' onChange={applyFilters}>
+      <select className='font-quicksan p-2' onChange={(e) => handleSucursal(e)}>
+        <option key="999">Sucursal</option>
         { arraySucursales.map(sucursal => (
-          <option className="font-quicksand" key={sucursal.id} value={sucursal.id}> {sucursal.nombre} </option>
+          <option className="font-quicksand" key={sucursal.id} value={sucursal.nombre}> {sucursal.nombre} </option>
           )
         )}
       </select>
@@ -26,8 +46,7 @@ export function TableSection({ title, filters, headers, data }) {
         <input
           type="date"
           className="block outline-none rounded-md focus:ring-0 h-10 w-4 pl-10 text-transparent content-none z-10 bg-transparent focus:bg-transparent hover:cursor-pointer"
-          onChange={(e) => setDate(e.target.value)}
-          onClick={filterByDate}
+          onChange={(e) => handleDate(e)}
         />
         <CiCalendarDate size={40} className="text-zinc-400 hover:cursor-pointer absolute right-0"/>
       </span>
@@ -42,15 +61,15 @@ export function TableSection({ title, filters, headers, data }) {
         <thead>
           <tr className='border'>
             { headers.map((header, index) => (
-              <th key={index} className='text-start font-quicksand p-4'>{ header }</th>)
+              <th key={ index } className='text-start font-quicksand p-4'>{ header }</th>)
             )}
           </tr>
         </thead>
         <tbody className='border'>
-          {data.map((item, index) => (
+          {info.map((item, index) => (
             <tr key={index} className='border-y w-full'>
               { item.map((data, index) => (
-                <td key={index} className='font-quicksand p-4'>{ data }</td>)
+                <td key={ index } className='font-quicksand p-4'>{ data }</td>)
               )}
             </tr>
           ))}

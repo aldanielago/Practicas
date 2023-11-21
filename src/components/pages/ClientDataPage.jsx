@@ -1,20 +1,12 @@
-import { TableSection } from '../elements/TableSection';
+import { useContext } from 'react';
+import { TableSection } from "../elements/TableSection";
+import { ClientContext } from "../../context/ClientContext";
 
 export function ClientDataPage() {
-  const headers = ['Nombre', 'Cargo', 'Sucursal', 'Teléfono', 'Fecha de ingreso'];
-
-  const data = [
-    ['Juan', 'Gerente', 'Sucursal 1', '12345678', '01/01/2021'],
-    ['Juan', 'Gerente', 'Sucursal 1', '12345678', '01/01/2021'],
-    ['Juan', 'Gerente', 'Sucursal 1', '12345678', '01/01/2021'],
-    ['Juan', 'Gerente', 'Sucursal 1', '12345678', '01/01/2021'],
-    ['Juan', 'Gerente', 'Sucursal 1', '12345678', '01/01/2021'],
-    ['Juan', 'Gerente', 'Sucursal 1', '12345678', '01/01/2021'],
-    ['Juan', 'Gerente', 'Sucursal 1', '12345678', '01/01/2021'],
-    ['Juan', 'Gerente', 'Sucursal 1', '12345678', '01/01/2021'],
-  ]
+  const headers = ['Nombre', 'Sucursal', 'Fecha inscripción', 'Teléfono'];
+  const { arrayClients } = useContext(ClientContext);
 
   return (
-    <TableSection title="Consultar empleados" filters="true" headers={headers} data={data}/>
+    <TableSection title="Consultar clientes" filters="true" headers={headers} data={arrayClients}/>
   )
 }
