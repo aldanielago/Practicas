@@ -1,6 +1,6 @@
 import { CiCalendarDate } from "react-icons/ci";
 import { SucursalContext } from '../../context/SucursalContext';
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 
 export function TableSection({ title, filters, headers, data }) {
   const [ date, setDate ] = useState('');
@@ -10,33 +10,37 @@ export function TableSection({ title, filters, headers, data }) {
 
   function handleSucursal(e) {
     setSucursal(e.target.value);
-    console.log(sucursal);
   }
 
   function handleDate(e) {
     setDate(e.target.value);
-    console.log(date);
   }
 
-  function applyFilters() {
-    const filteredData = data.filter(item => {
-      if (sucursal && date) {
-        return item[1] === sucursal && item[2] === date;
-      } else if (sucursal) {
-        return item[1] === sucursal;
-      } else if (date) {
-        return item[2] === date;
-      } else {
-        return item;
-      }
-    })
-    setInfo(filteredData);
-  }
+  useEffect(() => {
+
+		const applyFilters = () => {
+			const filteredData = data.filter(item => {
+				if (sucursal && date) {
+					return item[1] === sucursal && item[2] === date;
+				} else if (sucursal) {
+					return item[1] === sucursal;
+				} else if (date) {
+					return item[2] === date;
+				} else {
+					return item;
+				}
+			})
+			setInfo(filteredData);
+		}
+
+		applyFilters();
+
+	}, [sucursal, date, data])
+
 
   const filter = (
-    <div className='flex w-full justify-end gap-4 text-dark-text-gray pb-2' onChange={applyFilters}>
+    <div className='flex w-full justify-end gap-4 text-dark-text-gray pb-2'>
       <select className='font-quicksan p-2' onChange={(e) => handleSucursal(e)}>
-        <option key="999">Sucursal</option>
         { arraySucursales.map(sucursal => (
           <option className="font-quicksand" key={sucursal.id} value={sucursal.nombre}> {sucursal.nombre} </option>
           )
