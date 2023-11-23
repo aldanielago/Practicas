@@ -17,7 +17,6 @@ export function TableSection({ title, filters, headers, data }) {
   }
 
   useEffect(() => {
-
 		const applyFilters = () => {
 			const filteredData = data.filter(item => {
 				if (sucursal && date) {
@@ -39,7 +38,7 @@ export function TableSection({ title, filters, headers, data }) {
 
 
   const filter = (
-    <div className='flex w-full justify-end gap-4 text-dark-text-gray pb-2'>
+    <div className='flex w-full justify-end gap-4 text-dark-text-gray pb-2 max-w-5xl'>
       <select className='font-quicksan p-2' onChange={(e) => handleSucursal(e)}>
         { arraySucursales.map(sucursal => (
           <option className="font-quicksand" key={sucursal.id} value={sucursal.nombre}> {sucursal.nombre} </option>
