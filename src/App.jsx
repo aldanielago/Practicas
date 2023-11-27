@@ -1,45 +1,27 @@
-import { SucursalProvider } from './context/SucursalContext';
-// import { EmpleadosProvider } from './context/EmpleadosContext';
-// import { AdminDataPage } from './components/pages/AdminDataPage';
-// import { ClientProvider } from './context/ClientContext';
-// import { ClientDataPage } from './components/pages/ClientDataPage';
-import { BookProvider } from './context/BookContext';
-// import { BookDataPage } from './components/pages/BookDataPage';
-import { EditorialDataPage } from './components/pages/EditorialDataPage';
-// import { AdminLoginPage } from './components/pages/AdminLoginPage'
-// import { AdminRegister } from './components/pages/AdminRegisterPage'
-// import { BookRegisterPage } from "./components/pages/BookRegisterPage";
-// import { ClientRegisterPage } from "./components/pages/ClientRegisterPage";
+import { Routes, Route } from "react-router-dom";
+import { GeneralMenu } from './components/pages/GeneralMenu.jsx'
+import { BookDataPage } from './components/pages/BookDataPage.jsx'
+import { AdminLoginPage } from './components/pages/AdminLoginPage'
+import { AdminDataPage } from './components/pages/AdminDataPage.jsx'
+import { ClientDataPage } from './components/pages/ClientDataPage.jsx'
+import { AdminRegisterPage } from './components/pages/AdminRegisterPage'
+import { BookRegisterPage } from "./components/pages/BookRegisterPage.jsx";
+import { EditorialDataPage } from './components/pages/EditorialDataPage.jsx'
+import { ClientRegisterPage } from "./components/pages/ClientRegisterPage.jsx";
+import { SucursalProvider } from "./context/SucursalContext.jsx";
 
-
-function App() {
-
+export function App() {
   return (
-    <>
-      {/* <SucursalProvider> */}
-        {/* <BookRegisterPage /> */}
-        {/* <ClientRegisterPage /> */}
-        {/* <AdminLoginPage /> */}
-        {/* <AdminRegister /> */}
-      {/* </SucursalProvider> */}
-      {/* <SucursalProvider> */}
-        {/* <EmpleadosProvider> */}
-          {/* <AdminDataPage/> */}
-        {/* </EmpleadosProvider> */}
-      {/* </SucursalProvider> */}
-      {/* <SucursalProvider>
-        <ClientProvider>
-          <ClientDataPage />
-        </ClientProvider>
-      </SucursalProvider> */}
-      <SucursalProvider>
-        <BookProvider>
-          {/* <BookDataPage/> */}
-          <EditorialDataPage/>
-        </BookProvider>
-      </SucursalProvider>
-    </>
-  )
+    <Routes>
+      <Route path="/" element={<AdminLoginPage />} />
+      <Route path="/register-admin" element={<SucursalProvider><AdminRegisterPage /></SucursalProvider>} />
+      <Route path="/data-admin" element={<AdminDataPage />} />
+      <Route path="/data-book" element={<BookDataPage />} />
+      <Route path="/register-book" element={<SucursalProvider><BookRegisterPage /></SucursalProvider> } />
+      <Route path="/data-client" element={<ClientDataPage />} />
+      <Route path="/register-client" element={<SucursalProvider><ClientRegisterPage /></SucursalProvider>} />
+      <Route path="/data-editorial" element={<EditorialDataPage />} />
+      <Route path="/general-menu" element={<GeneralMenu />} />
+    </Routes>
+  );
 }
-
-export default App;

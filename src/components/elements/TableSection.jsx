@@ -2,7 +2,7 @@ import { CiCalendarDate } from "react-icons/ci";
 import { SucursalContext } from '../../context/SucursalContext';
 import { useState, useContext, useEffect } from 'react';
 
-export function TableSection({ title, filters, headers, data }) {
+export function TableSection({ title, filters, headers, data, color }) {
   const [ date, setDate ] = useState('');
   const [ sucursal, setSucursal ] = useState('');
   const [ info, setInfo ] = useState(data);
@@ -38,7 +38,7 @@ export function TableSection({ title, filters, headers, data }) {
 
 
   const filter = (
-    <div className='flex w-full justify-end gap-4 text-dark-text-gray pb-2 max-w-5xl'>
+    <div className='flex w-full justify-end gap-4 text-dark-text-gray pb-2 max-w-7xl'>
       <select className='font-quicksan p-2' onChange={(e) => handleSucursal(e)}>
         { arraySucursales.map(sucursal => (
           <option className="font-quicksand" key={sucursal.id} value={sucursal.nombre}> {sucursal.nombre} </option>
@@ -58,19 +58,19 @@ export function TableSection({ title, filters, headers, data }) {
 
   return (
     <section className='center my-8 p-8 rounded-md w-full'>
-      <h1 className='font-quicksand font-bold mb-4 text-xl text-primary-blue'>{ title }</h1>
+      <h1 className={`font-quicksand font-bold mb-4 text-xl`}>{ title }</h1>
       { filters && filter}
-      <table className='w-full border border-dark-text-gray'>
+      <table className={`w-full border-${color} border-2 max-w-7xl`}>
         <thead>
-          <tr className='border'>
+          <tr className={`border border-${color}`}>
             { headers.map((header, index) => (
-              <th key={ index } className='text-start font-quicksand p-4'>{ header }</th>)
+              <th key={ index } className={`text-start font-quicksand p-4`}>{ header }</th>)
             )}
           </tr>
         </thead>
         <tbody className='border'>
           {info.map((item, index) => (
-            <tr key={index} className='border-y w-full'>
+            <tr key={index} className={`border-y w-full border-${color}`}>
               { item.map((data, index) => (
                 <td key={ index } className='font-quicksand p-4'>{ data }</td>)
               )}

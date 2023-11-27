@@ -1,4 +1,4 @@
-export function Form({ text, children}) {
+export function Form({ text, children }) {
   return (
     <section className="center my-10 border border-dark-text-gray p-8 rounded-md">
       <h1 className='font-quicksand font-bold mb-4 text-xl'>{text}</h1>
