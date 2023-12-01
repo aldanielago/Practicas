@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { IoChevronBackCircleOutline } from "react-icons/io5";
 
 export function AdminDataPage() {
-  const headers = ['Nombre', 'Sucursal', 'Fecha ingrep', 'Cargo', 'Telefono'];
+  const headers = ['Nombre', 'Sucursal', 'Fecha ingreso', 'Cargo', 'Telefono'];
 
   const arrayEmpleados = [
     [ 'Juan', 'Bogotá', '01/01/2021', 'Administrador', '12345678'],

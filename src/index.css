@@ -12,7 +12,7 @@
 }
 
 /*Delete the default icon of the calendar icon withot remove the event*/
-input[type="date"]::-webkit-calendar-picker-indicator {
+span input[type="date"]::-webkit-calendar-picker-indicator {
   width: 100% !important;
   height: 100%;
   position: absolute;
