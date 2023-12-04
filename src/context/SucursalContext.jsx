@@ -1,18 +1,8 @@
 import { createContext } from "react";
-import { useEffect, useState } from "react";
 
 const SucursalContext = createContext();
-// const [sucursal, setSucursal] = useState([]);
-// const loadSucursales = async () => {
-//   const response = await fetch("http://localhost:4000/sucursal");
-//   const data = await response.json();
-//   setSucursal(data);
-// };
-// useEffect(() => {
-//   loadSucursales();
-// }, []);
+
 function SucursalProvider({ children }) {
-  // console.log(sucursal);
   const arraySucursales = [
     { id: 0, nombre: "Bogotá" },
     { id: 1, nombre: "Medellín" },

@@ -18,18 +18,6 @@ export function ClientDataPage() {
   }, []);
 
   const headers = ["Nombre", "Sucursal", "Fecha inscripción", "Teléfono"];
-  // loadCliente();
-  // const arrayClients = [
-  //   ["Juan", "Bogotá", "01/01/2021", "12345678"],
-  //   ["Gabriel", "Cali", "01/01/2021", "12345678"],
-  //   ["Oscar", "Medellín", "01/01/2021", "12345678"],
-  //   ["Alexandra", "Bogotá", "01/01/2021", "12345678"],
-  //   ["Fabio", "Medellín", "01/01/2021", "12345678"],
-  //   ["Andres", "Santa Marta", "01/01/2021", "12345678"],
-  //   ["Andrea", "Barranquilla", "01/01/2021", "12345678"],
-  //   ["Felipe", "Riohacha", "01/01/2021", "12345678"],
-  //   ["Laura", "Cartagena", "01/01/2021", "12345678"],
-  // ];
 
   return (
     <SucursalProvider>
